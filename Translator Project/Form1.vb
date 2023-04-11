@@ -58,4 +58,17 @@
         'ivdiyaisrvbcoiuawbo
 
     End Sub
+    Private Sub ClearOuput(sender As Object, e As EventArgs) Handles radBrother.CheckedChanged,
+    radFather.CheckedChanged, radSister.CheckedChanged, RadMother.CheckedChanged, cboLang.SelectedIndexChanged
+        lblTranslated.Text = String.Empty
+    End Sub
+    Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim dlgButton As DialogResult
+        dlgButton = MessageBox.Show("Are you REALLY REALLY sure you want to exit?", "Learn More Translations", MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question)
+
+        If dlgButton = DialogResult.No Then
+            e.Cancel = True
+        End If
+    End Sub
 End Class
